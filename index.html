@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lenny’s Hideaway | Cohasset, MA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark: #0b1f33;
+      --accent: #f26a4b;
+      --light: #f6f6f6;
+      --gray: #667085;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: white;
+      color: var(--dark);
+    }
+
+    /* ---------------- NAV ---------------- */
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(11,31,51,0.92);
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    nav h1 {
+      color: white;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 24px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.2s ease;
+    }
+
+    nav a:hover {
+      opacity: 0.75;
+    }
+
+    /* ---------------- HERO ---------------- */
+
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(rgba(11,31,51,0.55), rgba(11,31,51,0.75)),
+                  url('hero.jpg') center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+
+    .hero-content {
+      max-width: 700px;
+      animation: fadeUp 1s ease;
+    }
+
+    .hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 28px;
+      color: #e6e6e6;
+    }
+
+    .hero a {
+      background: var(--accent);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    }
+
+    .hero a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.3);
+    }
+
+    /* ---------------- SECTIONS ---------------- */
+
+    section {
+      padding: 90px 24px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.3rem;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    section p.section-subtitle {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 60px;
+      color: var(--gray);
+      font-size: 1.05rem;
+    }
+
+    /* ---------------- ABOUT ---------------- */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-text {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .about-img {
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    /* ---------------- MENU ---------------- */
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .menu-card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+    }
+
+    .menu-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .menu-card div {
+      padding: 22px;
+    }
+
+    .menu-card h4 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+    }
+
+    .menu-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--gray);
+    }
+
+    /* ---------------- CONTACT ---------------- */
+
+    .contact-box {
+      background: var(--dark);
+      color: white;
+      padding: 60px 40px;
+      border-radius: 24px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .contact-box h3 {
+      color: white;
+      margin-bottom: 14px;
+    }
+
+    .contact-box p {
+      margin: 6px 0;
+      color: #d6d6d6;
+    }
+
+    .contact-box a {
+      display: inline-block;
+      margin-top: 24px;
+      background: var(--accent);
+      color: white;
+      padding: 14px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* ---------------- FOOTER ---------------- */
+
+    footer {
+      background: #071524;
+      color: #ccc;
+      padding: 50px 24px 30px;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+
+    .footer-grid h5 {
+      color: white;
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    .footer-grid a {
+      display: block;
+      color: #ccc;
+      text-decoration: none;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+
+    .footer-grid a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.85rem;
+      color: #888;
+    }
+
+    /* ---------------- ANIMATIONS ---------------- */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ---------------- MOBILE ---------------- */
+
+    @media (max-width: 700px) {
+      nav {
+        padding: 14px 20px;
+      }
+
+      nav h1 {
+        font-size: 1.2rem;
+      }
+
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+
+      section {
+        padding: 70px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <h1>Lenny’s Hideaway</h1>
+    <div>
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Your Local Hideaway for Great Food & Drinks</h2>
+      <p>Fresh ingredients • Cozy atmosphere • Friendly service</p>
+      <a href="#menu">View Menu</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h3>Welcome to Lenny’s Hideaway</h3>
+    <p class="section-subtitle">A neighborhood favorite serving delicious food and drinks in a relaxed coastal atmosphere.</p>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          At Lenny’s Hideaway, we believe great food brings people together. Whether you're stopping by for lunch, dinner, or drinks with friends, you'll find fresh ingredients, warm service, and a laid-back vibe that keeps locals coming back.
+        </p>
+        <p>
+          Join us tonight and see why we’re one of Cohasset’s favorite hangouts.
+        </p>
+      </div>
+      <img src="interior.jpg" alt="Restaurant Interior" class="about-img">
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu">
+    <h3>Menu Highlights</h3>
+    <p class="section-subtitle">A few customer favorites — full menu available in-house.</p>
+
+    <div class="menu-grid">
+      <div class="menu-card">
+        <img src="burger.jpg" alt="Burger">
+        <div>
+          <h4>Signature Burgers</h4>
+          <p>Juicy burgers grilled fresh and served with crispy fries.</p>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="seafood.jpg" alt="Seafood">
+        <div>
+          <h4>Fresh Seafood</h4>
+          <p>Locally sourced seafood prepared daily.</p>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="wings.jpg" alt="Wings">
+        <div>
+          <h4>Appetizers & Wings</h4>
+          <p>Perfect for sharing — or not 😉</p>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="drinks.jpg" alt="Drinks">
+        <div>
+          <h4>Craft Drinks</h4>
+          <p>Cocktails, beer, wine, and daily specials.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-box">
+      <h3>Visit Us</h3>
+      <p>📍 Cohasset, Massachusetts</p>
+      <p>📞 (781) 923-1881</p>
+      <p>🕒 Open Daily</p>
+      <a href="https://goo.gl/maps/example" target="_blank">Get Directions</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h5>Lenny’s Hideaway</h5>
+        <p style="color:#bbb;font-size:0.9rem;">Your neighborhood spot for great food and drinks.</p>
+      </div>
+
+      <div>
+        <h5>Quick Links</h5>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div>
+        <h5>Connect</h5>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">Google</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Lenny’s Hideaway. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
