@@ -6,25 +6,15 @@
   <title>Hoopers Judge | Cohasset, MA</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <style>
-        body {
+    body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
       background: rgb(74,103,65);
       color: white;
     }
-    
-    section {
-      padding: 90px 24px;
-      max-width: 1200px;
-      margin: auto;
-      background: rgb(74,103,65);
-    }
 
     :root {
-      --dark: #FFFFFF;
       --accent: #374f2f;
-      --light: #f6f6f6;
-      --gray: #000000;
       --darkgreen: #304529;
     }
 
@@ -45,6 +35,7 @@
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
+      backdrop-filter: blur(8px);
     }
 
     nav h1 {
@@ -59,11 +50,23 @@
       margin-left: 24px;
       text-decoration: none;
       font-weight: 500;
+      position: relative;
       transition: opacity 0.2s ease;
     }
 
-    nav a:hover {
-      opacity: 0.75;
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0%;
+      height: 2px;
+      background: white;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     /* ---------------- HERO ---------------- */
@@ -105,13 +108,15 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 10px 20px rgba(63,90,54);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      display: inline-block;
     }
 
     .hero a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 28px rgba(63,90,54);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 18px 36px rgba(0,0,0,0.35);
+      background: #4f6f45;
     }
 
     /* ---------------- SECTIONS ---------------- */
@@ -133,11 +138,19 @@
       text-align: center;
       max-width: 650px;
       margin: 0 auto 60px;
-      color: var(--gray);
+      color: #e8e8e8;
       font-size: 1.05rem;
     }
 
     /* ---------------- ABOUT ---------------- */
+
+    .about-box {
+      background: rgb(74,103,65);
+      padding: 60px 40px;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      color: white;
+    }
 
     .about-grid {
       display: grid;
@@ -154,7 +167,13 @@
     .about-img {
       width: 100%;
       border-radius: 18px;
-      box-shadow: 0 20px 40px rgba(63,90,54);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .about-img:hover {
+      transform: scale(1.04);
+      box-shadow: 0 26px 50px rgba(0,0,0,0.4);
     }
 
     /* ---------------- MENU ---------------- */
@@ -167,15 +186,16 @@
 
     .menu-card {
       background: white;
+      color: #0b1f33;
       border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 14px 30px rgba(63,90,54);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .menu-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 45px rgba(63,90,54);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 26px 55px rgba(0,0,0,0.35);
     }
 
     .menu-card img {
@@ -196,18 +216,18 @@
     .menu-card p {
       margin: 0;
       font-size: 0.95rem;
-      color: var(--gray);
+      color: #667085;
     }
 
     /* ---------------- CONTACT ---------------- */
 
     .contact-box {
-      background: var(--darkgreen);
+      background: rgb(74,103,65);
       color: white;
       padding: 60px 40px;
       border-radius: 24px;
       text-align: center;
-      box-shadow: 0 20px 40px rgba(55,79,47);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     }
 
     .contact-box h3 {
@@ -217,7 +237,7 @@
 
     .contact-box p {
       margin: 6px 0;
-      color: #d6d6d6;
+      color: #e6e6e6;
     }
 
     .contact-box a {
@@ -229,6 +249,14 @@
       border-radius: 30px;
       text-decoration: none;
       font-weight: 600;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .contact-box a:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 18px 36px rgba(0,0,0,0.35);
+      background: #4f6f45;
     }
 
     /* ---------------- FOOTER ---------------- */
@@ -259,10 +287,12 @@
       text-decoration: none;
       margin-bottom: 8px;
       font-size: 0.9rem;
+      transition: color 0.25s ease, transform 0.25s ease;
     }
 
     .footer-grid a:hover {
       color: white;
+      transform: translateX(4px);
     }
 
     .footer-bottom {
@@ -303,6 +333,11 @@
       section {
         padding: 70px 20px;
       }
+
+      .about-box,
+      .contact-box {
+        padding: 40px 24px;
+      }
     }
   </style>
 </head>
@@ -321,7 +356,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
-      <h2>The Perfect Reseraunt for Exquisite Food & Drinks</h2>
+      <h2>The Perfect Restaurant for Exquisite Food & Drinks</h2>
       <p>Fresh food • Roomy atmosphere • Polite service</p>
       <a href="#menu">View Menu</a>
     </div>
@@ -329,19 +364,21 @@
 
   <!-- ABOUT -->
   <section id="about">
-    <h3>Welcome to Hoopers Judge</h3>
-    <p class="section-subtitle">A neighborhood favorite serving delicious food and drinks in a relaxed and roomy atmosphere.</p>
+    <div class="about-box">
+      <h3>Welcome to Hoopers Judge</h3>
+      <p class="section-subtitle">A neighborhood favorite serving delicious food and drinks in a relaxed and roomy atmosphere.</p>
 
-    <div class="about-grid">
-      <div class="about-text">
-        <p>
-          At Hoopers Judge, we believe great food brings people together. Whether you're stopping by for lunch, dinner, or drinks with friends, you'll find great food, warm service, and a laid-back vibe that keeps locals coming back.
-        </p>
-        <p>
-          Visit us tonight and see why we’re the place to be.
-        </p>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            At Hoopers Judge, we believe great food brings people together. Whether you're stopping by for lunch, dinner, or drinks with friends, you'll find great food, warm service, and a laid-back vibe that keeps locals coming back.
+          </p>
+          <p>
+            Visit us tonight and see why we’re the place to be.
+          </p>
+        </div>
+        <img src="logo.jpg" alt="Logo" class="about-img">
       </div>
-      <img src="logo.jpg" alt="Logo" class="about-img">
     </div>
   </section>
 
@@ -391,7 +428,7 @@
       <h3>Visit Us</h3>
       <p>📍 Cohasset, Massachusetts</p>
       <p>📞 (781) 923-1033</p>
-      <p>🕒 Open Hours:<br>Monday-Friday: 4-10pm<br>Saturday: 11am-10pm<br>Sunday: 11am-9pm</p>
+      <p>🕒 Open Hours:<br>Monday–Friday: 4–10pm<br>Saturday: 11am–10pm<br>Sunday: 11am–9pm</p>
       <a href="https://maps.app.goo.gl/tHD5cRybRF9xKzhy9" target="_blank">Get Directions</a>
     </div>
   </section>
@@ -414,7 +451,7 @@
         <h5>Connect</h5>
         <a href="https://www.instagram.com/hoopers_judge">Instagram</a>
         <a href="https://www.facebook.com/profile.php?id=61578946491092">Facebook</a>
-        <a href="https://www.google.com/search?client=safari&rls=en&q=Hoopers+Judge%2C+Cohasset+MA&ie=UTF-8&oe=UTF-8">Google</a>
+        <a href="https://www.google.com/search?q=Hoopers+Judge+Cohasset+MA">Google</a>
       </div>
     </div>
 
